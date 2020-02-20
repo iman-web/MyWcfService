@@ -31,7 +31,7 @@ namespace WinFormsApp
             }
             catch (Exception ex)
             {
-                label3.Text = "Veuillez entrer un chiffre " + ex.ToString();
+                label3.Text = "Veuillez entrer un chiffre " +ex.ToString();
 
             }
         }
