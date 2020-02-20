@@ -24,39 +24,26 @@ namespace MyWcfService
     // [System.Web.Script.Services.ScriptService]  
     public class Service1 : IService1
     {
-
-        [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello imane";
-        }
-        [WebMethod]
-        public int Add(List<int> listInt)
-        {
-            int result = 0;
-            for (int i = 0; i < listInt.Count; i++)
-            {
-                result = result + listInt[i];
-            }
-
-            return result;
-        }
         [WebMethod]
         public async Task<int> Fibonacci(int n)
         {
-            int w;
-            if (n <= 0) return 0;
-            if (n == 1) return 1;
-            int u = 0;
-            int v = 1;
-            for (int i = 2; i <= n; i++)
+            var result = await Task.Run(() =>
             {
-                w = u + v;
-                u = v;
-                v = w;
-            };
-            Thread.Sleep(2000);
-            return v;
+                int w;
+                if (n <= 0) return 0;
+                if (n == 1) return 1;
+                int u = 0;
+                int v = 1;
+                for (int i = 2; i <= n; i++)
+                {
+                    w = u + v;
+                    u = v;
+                    v = w;
+                };
+                return v;
+            });
+ 
+            return result;
         }
         [WebMethod]
         public string GetXmlData(string xmlContent)

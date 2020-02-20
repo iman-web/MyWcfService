@@ -16,18 +16,6 @@ namespace ServiceRef
     public interface IService1
     {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HelloWorld", ReplyAction="http://tempuri.org/IService1/HelloWorldResponse")]
-        string HelloWorld();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HelloWorld", ReplyAction="http://tempuri.org/IService1/HelloWorldResponse")]
-        System.Threading.Tasks.Task<string> HelloWorldAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Add", ReplyAction="http://tempuri.org/IService1/AddResponse")]
-        int Add(int[] listInt);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Add", ReplyAction="http://tempuri.org/IService1/AddResponse")]
-        System.Threading.Tasks.Task<int> AddAsync(int[] listInt);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Fibonacci", ReplyAction="http://tempuri.org/IService1/FibonacciResponse")]
         int Fibonacci(int n);
         
@@ -90,27 +78,7 @@ namespace ServiceRef
                 base(binding, remoteAddress)
         {
         }
-        
-        public string HelloWorld()
-        {
-            return base.Channel.HelloWorld();
-        }
-        
-        public System.Threading.Tasks.Task<string> HelloWorldAsync()
-        {
-            return base.Channel.HelloWorldAsync();
-        }
-        
-        public int Add(int[] listInt)
-        {
-            return base.Channel.Add(listInt);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddAsync(int[] listInt)
-        {
-            return base.Channel.AddAsync(listInt);
-        }
-        
+      
         public int Fibonacci(int n)
         {
             return base.Channel.Fibonacci(n);

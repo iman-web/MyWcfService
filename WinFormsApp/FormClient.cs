@@ -23,18 +23,15 @@ namespace WinFormsApp
             {
                 ServiceRef.Service1Client client = new ServiceRef.Service1Client();
 
-
                 int nbr = Int32.Parse(textBoxNbr.Text);
-                Task<int> taskVal = new Task<int>(() => client.Fibonacci(nbr));
-                taskVal.Start();
-                //int taskVal = await client.FibonacciAsync(nbr);
-                var val = await taskVal;
+                var taskVal =  client.Fibonacci(nbr);
+                Thread.Sleep(2000);
                 this.Hide();
-                MessageBox.Show(val.ToString());
+                MessageBox.Show(taskVal.ToString());
             }
             catch (Exception ex)
             {
-                label3.Text = "Veuillez entrer un chiffre"; //ex.ToString();
+                label3.Text = "Veuillez entrer un chiffre " + ex.ToString();
 
             }
         }

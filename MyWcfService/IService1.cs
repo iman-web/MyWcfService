@@ -14,13 +14,6 @@ namespace MyWcfService
     public interface IService1
     {
         [OperationContract]
-        //string GetData(int value);
-        string HelloWorld();
-        [OperationContract]
-        // CompositeType GetDataUsingDataContract(CompositeType composite);
-        int Add(List<int> listInt);
-
-        [OperationContract]
         Task<int> Fibonacci(int n);
         // TODO: ajoutez vos opérations de service ici
         [OperationContract]
